@@ -12,8 +12,6 @@ import lombok.Setter;
 @Data
 public class PracticeEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
@@ -23,8 +21,8 @@ public class PracticeEntity {
 
     }
 
-    public PracticeEntity(Long id, String name, String code) {
-        this.id = id;
+    public PracticeEntity(String name, String code) {
         this.name = name;
+        this.code = code;
     }
 }

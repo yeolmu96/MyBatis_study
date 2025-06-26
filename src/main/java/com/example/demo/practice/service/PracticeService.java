@@ -14,7 +14,7 @@ public class PracticeService {
     @Autowired
     PracticeMapper practiceMapper;
 
-    public boolean create(PracticeDTO dto) {
+    public boolean create(PracticeDTO practiceDTO) {
         PracticeEntity practiceEntity = new PracticeEntity(practiceDTO.getName(), practiceDTO.getCode());
 
         boolean createResult = practiceMapper.create(practiceEntity);
