@@ -1,6 +1,7 @@
 package com.example.demo.item.controller;
 
 import com.example.demo.item.dto.ItemDto;
+import com.example.demo.item.dto.ItemUpdateDto;
 import com.example.demo.item.entity.ItemEntity;
 import com.example.demo.item.service.ItemServiceImpl;
 import lombok.RequiredArgsConstructor;
@@ -76,5 +77,19 @@ public class ItemController {
         }
 
         return ResponseEntity.badRequest().body("삭제 failed");
+    }
+
+    @PostMapping("/v2")
+    public ResponseEntity<ItemEntity> findByIdV2(@RequestBody Long itemId){
+
+        Optional<ItemEntity> findItem = itemService.findById(itemId);
+
+        log.info("findItem:{}", findItem);
+
+        if(findItem.isPresent()){
+            return ResponseEntity.ok().body(findItem.get());
+        }
+
+        return ResponseEntity.notFound().build();
     }
 }

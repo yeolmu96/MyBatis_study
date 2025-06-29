@@ -12,7 +12,7 @@ import lombok.Setter;
 @Data
 public class ItemEntity {
 
-    private Long itemId;
+    private Long id;
     private String itemName;
     private Integer price;
     private Integer quantity;

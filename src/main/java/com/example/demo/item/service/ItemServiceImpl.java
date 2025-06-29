@@ -1,6 +1,7 @@
 package com.example.demo.item.service;
 
 import com.example.demo.item.dto.ItemDto;
+import com.example.demo.item.dto.ItemUpdateDto;
 import com.example.demo.item.entity.ItemEntity;
 import com.example.demo.item.repository.ItemMapper;
 import lombok.RequiredArgsConstructor;
@@ -15,8 +16,8 @@ public class ItemServiceImpl implements ItemService {
 
     private final ItemMapper itemMapper;
 
+    @Override
     public boolean save(ItemDto itemDto) {
-
         ItemEntity saveitem = new ItemEntity(itemDto.getItemName(), itemDto.getPrice(), itemDto.getQuantity());
         Boolean isSave = itemMapper.save(saveitem);
 
@@ -27,22 +28,23 @@ public class ItemServiceImpl implements ItemService {
         return true;
     }
 
+    @Override
     public List<ItemEntity> findAll() {
         return itemMapper.findAll();
     }
 
+    @Override
     public Optional<ItemEntity> findById(Long itemId) {
-        return itemMapper.findById(itemId);
+        return Optional.empty();
     }
 
-    public boolean update(ItemUpdateDto itemUpdateDto) {
-        return itemMapper.update(itemUpdateDto.getId(),
-                new ItemEntity(itemUpdateDto.getItemName(),
-                        itemUpdateDto.getPrice(),
-                        itemUpdateDto.getQuantity()));
+    @Override
+    public Boolean update(ItemUpdateDto itemUpdateDto) {
+        return null;
     }
 
-    public Boolean deleteById(Long id) {
-        return itemMapper.deleteById(itemId);
+    @Override
+    public Boolean deletebyId(Long itemId) {
+        return null;
     }
 }
