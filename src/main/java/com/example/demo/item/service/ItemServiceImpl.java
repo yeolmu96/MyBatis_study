@@ -35,16 +35,17 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public Optional<ItemEntity> findById(Long itemId) {
-        return Optional.empty();
+        return itemMapper.findById(itemId);
     }
 
     @Override
     public Boolean update(ItemUpdateDto itemUpdateDto) {
-        return null;
+        return itemMapper.update(itemUpdateDto.getId(),
+                new ItemEntity(itemUpdateDto.getItemName(), itemUpdateDto.getPrice(), itemUpdateDto.getQuantity()));
     }
 
     @Override
-    public Boolean deletebyId(Long itemId) {
-        return null;
+    public Boolean deleteById(Long itemId) {
+        return itemMapper.deleteById(itemId);
     }
 }

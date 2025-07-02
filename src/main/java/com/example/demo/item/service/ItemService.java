@@ -1,6 +1,7 @@
 package com.example.demo.item.service;
 
 import com.example.demo.item.dto.ItemDto;
+import com.example.demo.item.dto.ItemUpdateDto;
 import com.example.demo.item.entity.ItemEntity;
 
 import java.util.List;
@@ -12,5 +13,5 @@ public interface ItemService {
     public List<ItemEntity> findAll();
     public Optional<ItemEntity> findById(Long itemId);
     public Boolean update(ItemUpdateDto itemUpdateDto);
-    public Boolean deletebyId(Long itemId);
+    public Boolean deleteById(Long itemId);
 }
