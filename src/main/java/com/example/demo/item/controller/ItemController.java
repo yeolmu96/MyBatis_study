@@ -33,6 +33,19 @@ public class ItemController {
         }
     }
 
+    //저장
+    @PostMapping("save_all")
+    public ResponseEntity<String> saveAll(@RequestBody List<ItemDto> itemDtoList){
+
+        boolean result = itemService.saveAll(itemDtoList);
+
+        if(result){
+            return ResponseEntity.ok().body("생성 successed");
+        } else{
+            return ResponseEntity.badRequest().body("생성 failed");
+        }
+    }
+
     //검색
     @GetMapping("/{id}")
     public ResponseEntity<ItemEntity> findById(@PathVariable("id") Long id){

@@ -48,4 +48,12 @@ public class ItemServiceImpl implements ItemService {
     public Boolean deleteById(Long itemId) {
         return itemMapper.deleteById(itemId);
     }
+
+    public boolean saveAll(List<ItemDto> itemDtoList) {
+        for(ItemDto itemDto:itemDtoList){
+            System.out.println("저장:" + itemDto.getItemName());
+            save(itemDto);
+        }
+        return true;
+    }
 }

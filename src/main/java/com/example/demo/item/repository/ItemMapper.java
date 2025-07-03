@@ -15,4 +15,5 @@ public interface ItemMapper {
     Optional<ItemEntity> findById(Long id);
     List<ItemEntity> findAll();
     Boolean deleteById(@Param("id") Long id);
+//    Boolean saveAll(List<ItemEntity> list);
 }

@@ -14,4 +14,5 @@ public interface ItemService {
     public Optional<ItemEntity> findById(Long itemId);
     public Boolean update(ItemUpdateDto itemUpdateDto);
     public Boolean deleteById(Long itemId);
+    public boolean saveAll(List<ItemDto> itemDtoList);
 }
